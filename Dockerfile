@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:latest
 MAINTAINER Sascha Wander <sascha.wander@gmail.com>
 
 RUN apk --no-cache add tor
