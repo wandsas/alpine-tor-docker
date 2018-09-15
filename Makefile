@@ -1,12 +1,12 @@
 #!/usr/bin/env make
 
 .PHONY: run
-ALL:	build
+ALL:	run
 
 build:
 	@docker build -t wandsas/torproxy .
 
-run:
+run: build
 	@docker run -d \
 		--name torproxy \
 		--hostname torproxy \
@@ -15,7 +15,7 @@ run:
 		wandsas/torproxy
 
 test:
-	curl --socks http://192.168.99.100:9050 \
+	curl --socks http://localhost:9050 \
 		-L https://check.torproject.org/api/ip
 
 # vim:fenc=utf-8:ft=make:
